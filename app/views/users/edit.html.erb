@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <h2 class="title-h2">Edit Profile</h2>
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger">
+      <h4>The following errors prevented the user from being saved:</h4>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_with model: @user, url: profile_path, local: true, method: :patch do |form| %>
+    <div class="mb-3">
+      <%= form.label :email %>
+      <%= form.email_field :email, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :password %>
+      <%= form.password_field :password, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :role %>
+      <%= form.select :role, User.roles.keys.map { |role| [role.titleize, role] }, {}, class: "form-control" %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :profile_image %>
+      <%= form.file_field :profile_image, class: "form-control" %>
+      <% if @user.profile_image.attached? && @user.profile_image.persisted? %>
+        <%= image_tag @user.profile_image, size: "150x150", class: "mt-2" %>
+      <% end %>
+    </div>
+    <%= form.submit "Update Profile", class: "btn btn-custom" %>
+  <% end %>
+</div>

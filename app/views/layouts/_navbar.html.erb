@@ -17,6 +17,15 @@
       <ul class="navbar-nav d-flex align-items-center">
         <% if logged_in? %>
           <li class="nav-item">
+            <% if current_user.profile_image.attached? && current_user.profile_image.persisted? %>
+              <%= link_to profile_path do %>
+                <%= image_tag current_user.profile_image, size: "30x30", class: "rounded-circle" %>
+              <% end %>
+            <% else %>
+              <%= link_to 'Profile', profile_path, class: 'nav-link' %>
+            <% end %>
+          </li>
+          <li class="nav-item">
             <%= link_to 'Logout', logout_path, method: :delete, class: 'nav-link btn btn-custom mx-2' %>
           </li>
         <% else %>

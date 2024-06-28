@@ -17,6 +17,10 @@
       <%= form.label :role %>
       <%= form.select :role, options_for_select([['Buyer', 'buyer'], ['Seller', 'seller']]), {}, {class: "form-control"} %>
     </div>
+    <div class="mb-3">
+      <%= form.label :profile_image %>
+      <%= form.file_field :profile_image, class: "form-control" %>
+    </div>
     <%= form.submit "Register", class: "btn btn-custom" %>
   <% end %>
 </div>
