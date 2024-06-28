@@ -16,8 +16,8 @@ Welcome to **Lhannout**, an e-commerce application built with Ruby on Rails! ğŸš
 
 ### Prerequisites
 
-- Ruby 2.7.2+
-- Rails 6.0+
+- Ruby ~ > 3.3.3
+- Rails ~ > 7.0
 - SQLite3
 - Node.js and Yarn
 
@@ -90,3 +90,7 @@ To run the tests, execute:
 
 ```bash
 rails test
+
+## ğŸ“œ License
+
+This project is licensed under the MIT License.
