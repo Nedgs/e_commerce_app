@@ -105,3 +105,21 @@ body {
 table {
     background-color: #f8f9fa;
 }
+
+.img-fluid {
+    max-width: 250px;
+}
+
+.products img-product {
+    max-width: 130px;
+    text-align: centers;
+  }
+
+.products .card-body h5,p {
+    margin-bottom: 0.5rem !important;
+}
+
+.products .col-md-3 {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+}

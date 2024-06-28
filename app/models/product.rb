@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
     belongs_to :seller, class_name: 'User'
     has_many :orders
+    has_one_attached :image
   
     validates :name, presence: true
     validates :description, presence: true

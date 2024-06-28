@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
-    before_action :set_product, only: [:show, :edit, :update, :destroy]
-    before_action :require_seller, only: [:new, :create, :edit, :update, :destroy, :my_products]
+    before_action :set_product, only: %i[show edit update destroy]
+    before_action :require_seller, except: %i[index show]
   
     def index
       @products = Product.all
@@ -15,8 +15,9 @@ class ProductsController < ApplicationController
   
     def create
       @product = current_user.products.build(product_params)
+  
       if @product.save
-        redirect_to @product, notice: 'Product created successfully'
+        redirect_to @product, notice: 'Product was successfully created.'
       else
         render :new
       end
@@ -27,7 +28,7 @@ class ProductsController < ApplicationController
   
     def update
       if @product.update(product_params)
-        redirect_to @product, notice: 'Product updated successfully'
+        redirect_to @product, notice: 'Product was successfully updated.'
       else
         render :edit
       end
@@ -35,7 +36,7 @@ class ProductsController < ApplicationController
   
     def destroy
       @product.destroy
-      redirect_to products_url, notice: 'Product deleted successfully'
+      redirect_to products_url, notice: 'Product was successfully destroyed.'
     end
   
     def my_products
@@ -49,7 +50,7 @@ class ProductsController < ApplicationController
     end
   
     def product_params
-      params.require(:product).permit(:name, :description, :price, :stock)
+      params.require(:product).permit(:name, :description, :price, :stock, :image)
     end
   
     def require_seller

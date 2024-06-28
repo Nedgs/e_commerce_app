@@ -1,11 +1,14 @@
 <div class="container mt-4">
   <h2><%= @product.name %></h2>
+  <% if @product.image.attached? %>
+    <%= image_tag @product.image, class: 'img-fluid', alt: @product.name %>
+  <% end %>
   <p><%= @product.description %></p>
   <p><strong>Price:</strong> $<%= @product.price %></p>
   <p><strong>Stock:</strong> <%= @product.stock %></p>
 
   <% if current_user&.buyer? %>
-    <%= form_with url: orders_path, method: :post, local: true do |form| %>
+    <%= form_with url: orders_path, method: :post, local: true do %>
       <div class="mb-3">
         <%= hidden_field_tag :product_id, @product.id %>
         <%= label_tag :quantity %>

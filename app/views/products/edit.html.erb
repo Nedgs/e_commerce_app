@@ -17,6 +17,10 @@
       <%= form.label :stock %>
       <%= form.number_field :stock, class: "form-control" %>
     </div>
+    <div class="mb-3">
+      <%= form.label :image %>
+      <%= form.file_field :image, class: "form-control" %>
+    </div>
     <%= form.submit "Update Product", class: "btn btn-custom" %>
   <% end %>
 </div>
