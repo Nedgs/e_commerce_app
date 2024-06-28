@@ -7,7 +7,10 @@
       <% end %>
       <%= link_to 'Home', root_path, class: 'nav-link custom-link mx-3' %>
       <% if logged_in? && current_user.seller? %>
-          <%= link_to 'My Products', my_products_path, class: 'nav-link custom-link mx-3' %>
+        <%= link_to 'My Products', my_products_path, class: 'nav-link custom-link mx-3' %>
+      <% end %>
+      <% if logged_in? && current_user.buyer? %>
+        <%= link_to 'My Orders', orders_path, class: 'nav-link custom-link mx-3' %>
       <% end %>
     </div>
     <div id="navbarNav" class="d-flex ms-auto">

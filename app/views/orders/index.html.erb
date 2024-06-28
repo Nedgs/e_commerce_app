@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <h2 class="title-h2">My Orders</h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= link_to order.product.name, product_path(order.product) %></td>
+          <td><%= order.quantity %></td>
+          <td><%= number_to_currency(order.total_price) %></td>
+          <td><%= order.created_at.strftime("%B %d, %Y") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     post '/register', to: 'users#create'
   
     resources :products
-    resources :orders, only: [:create]
+    resources :orders, only: [:create, :index]
   
     get '/my_products', to: 'products#my_products', as: 'my_products'
 end

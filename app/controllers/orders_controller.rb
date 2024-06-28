@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-    before_action :require_buyer
+    before_action :require_buyer, only: [:create]
   
     def create
       product = Product.find(params[:product_id])
@@ -8,16 +8,20 @@ class OrdersController < ApplicationController
       @order.total_price = product.price * @order.quantity
   
       if @order.save
-        redirect_to @order.product, notice: 'Order placed successfully'
+        redirect_to orders_path, notice: 'Order placed successfully'
       else
         redirect_to @order.product, alert: 'Failed to place order'
       end
     end
   
+    def index
+      @orders = current_user.orders.includes(:product)
+    end
+  
     private
   
     def order_params
-      params.require(:order).permit(:quantity)
+      params.permit(:quantity, :product_id)
     end
   
     def require_buyer
