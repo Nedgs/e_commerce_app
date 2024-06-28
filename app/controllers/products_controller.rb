@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
     before_action :set_product, only: [:show, :edit, :update, :destroy]
-    before_action :require_seller, only: [:new, :create, :edit, :update, :destroy]
+    before_action :require_seller, only: [:new, :create, :edit, :update, :destroy, :my_products]
   
     def index
       @products = Product.all
@@ -36,6 +36,10 @@ class ProductsController < ApplicationController
     def destroy
       @product.destroy
       redirect_to products_url, notice: 'Product deleted successfully'
+    end
+  
+    def my_products
+      @products = current_user.products
     end
   
     private

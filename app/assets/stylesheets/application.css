@@ -77,4 +77,8 @@ body {
   .custom-link:hover {
     color: #5c5d7e !important;
   }
+
+.title-h2 {
+    margin-bottom: 40px;
+}
   
