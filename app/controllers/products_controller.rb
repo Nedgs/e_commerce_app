@@ -33,10 +33,14 @@ class ProductsController < ApplicationController
         render :edit
       end
     end
-  
+
     def destroy
-      @product.destroy
-      redirect_to products_url, notice: 'Product was successfully destroyed.'
+        @product.destroy
+        if params[:source] == 'my_products'
+          redirect_to my_products_path, notice: 'Product was successfully destroyed.'
+        else
+          redirect_to products_url, notice: 'Product was successfully destroyed.'
+        end
     end
   
     def my_products
