@@ -18,16 +18,16 @@
     </div>
     <div class="mb-3">
       <%= form.label :password %>
-      <%= form.password_field :password, class: "form-control", id: "user_password" %>
-      <a href="#" id="edit-password-link" class="text-primary" style="font-size: 0.9em;">click here to edit password</a>
+      <%= form.password_field :password, id: "user_password", class: "form-control" %>
+      <a href="#" id="edit-password-link">Click here to edit password</a>
     </div>
     <div class="mb-3">
       <%= form.label :password_confirmation %>
-      <%= form.password_field :password_confirmation, class: "form-control", id: "user_password_confirmation" %>
+      <%= form.password_field :password_confirmation, id: "user_password_confirmation", class: "form-control" %>
     </div>
     <div class="mb-3">
       <%= form.label :role %>
-      <%= form.select :role, User.roles.keys.map { |role| [role.titleize, role] }, {}, class: "form-control" %>
+      <%= form.select :role, options_for_select([['Buyer', 'buyer'], ['Seller', 'seller'], ['Seller & Buyer', 'seller_buyer']]), {}, {class: "form-control"} %>
     </div>
     <div class="mb-3">
       <%= form.label :profile_image %>

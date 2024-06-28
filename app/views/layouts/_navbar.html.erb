@@ -6,10 +6,10 @@
         <h2 class="mb-0">Lhannout</h2>
       <% end %>
       <%= link_to 'Home', root_path, class: 'nav-link custom-link mx-3' %>
-      <% if logged_in? && current_user.seller? %>
+      <% if logged_in? && (current_user.seller? || current_user.seller_buyer?) %>
         <%= link_to 'My Products', my_products_path, class: 'nav-link custom-link mx-3' %>
       <% end %>
-      <% if logged_in? && current_user.buyer? %>
+      <% if logged_in? && (current_user.buyer? || current_user.seller_buyer?) %>
         <%= link_to 'My Orders', orders_path, class: 'nav-link custom-link mx-3' %>
       <% end %>
     </div>

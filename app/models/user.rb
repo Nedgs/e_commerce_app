@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     has_secure_password
   
-    enum role: { buyer: 'buyer', seller: 'seller' }
+    enum role: { buyer: 'buyer', seller: 'seller', seller_buyer: 'seller_buyer' }
   
     has_many :orders, foreign_key: 'buyer_id'
     has_many :products, foreign_key: 'seller_id'

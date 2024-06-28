@@ -58,7 +58,7 @@ class ProductsController < ApplicationController
     end
   
     def require_seller
-      redirect_to root_path, alert: 'You must be a seller to perform this action' unless current_user&.seller?
+      redirect_to root_path, alert: 'You must be a seller to perform this action' unless current_user&.seller? || current_user&.seller_buyer?
     end
 end
   
