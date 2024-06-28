@@ -3,6 +3,7 @@
   <table class="table table-bordered">
     <thead>
       <tr>
+        <th>Image</th>
         <th>Product</th>
         <th>Quantity</th>
         <th>Total Price</th>
@@ -12,6 +13,11 @@
     <tbody>
       <% @orders.each do |order| %>
         <tr>
+          <td>
+            <% if order.product.image.attached? %>
+              <%= image_tag order.product.image, size: "50x50", alt: order.product.name %>
+            <% end %>
+          </td>
           <td><%= link_to order.product.name, product_path(order.product) %></td>
           <td><%= order.quantity %></td>
           <td><%= number_to_currency(order.total_price) %></td>
