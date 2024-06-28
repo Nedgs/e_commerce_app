@@ -90,6 +90,7 @@ To run the tests, execute:
 
 ```bash
 rails test
+```
 
 ## 📜 License
 
