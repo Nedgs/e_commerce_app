@@ -1,0 +1,80 @@
+/* application.css */
+
+/* Styles pour le corps de la page */
+body {
+  background-color: #f0f0f5;
+}
+
+/* Styles pour la navbar */
+.navbar {
+  background-color: #ffffff;
+  border: 0.063rem solid #f1f2f3;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.04);
+  border-radius: 0.5rem;
+}
+
+/* Styles personnalisés pour les boutons */
+.btn-custom {
+  background-color: #625afa;
+  color: white !important;
+  border-radius: 4px;
+  padding: 5px 10px !important;
+  margin-right: 5px;
+  align-items: center;
+  justify-content: center;
+  text-align: center !important;
+  min-width: 80px;
+}
+.btn {
+    min-width: 80px !important;
+}
+.btn-custom:hover {
+  background-color: #4e46d0;
+  color: white !important;
+}
+
+/* Styles pour aligner les éléments de la navbar */
+#navbarNav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card {
+  border: 0.063rem solid #f1f2f3;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.04);
+  border-radius: 0.5rem;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+
+}
+
+.navbar-brand img {
+    width: 35px;
+    height: 35px !important;
+}
+
+
+.navbar-brand h2 {
+    margin-left: 10px !important;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+.custom-link {
+    color: #747794 !important;
+    font-size: 1rem;
+    padding: 5px 10px !important;
+    border-radius: 4px;
+    text-align: center !important;
+    height: 100%;
+  }
+  
+  .custom-link:hover {
+    color: #5c5d7e !important;
+  }
+  
