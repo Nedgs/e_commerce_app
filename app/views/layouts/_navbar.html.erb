@@ -16,10 +16,10 @@
     <div id="navbarNav" class="d-flex ms-auto">
       <ul class="navbar-nav d-flex align-items-center">
         <% if logged_in? %>
-          <li class="nav-item">
+          <li class="nav-item first-nav">
             <% if current_user.profile_image.attached? && current_user.profile_image.persisted? %>
               <%= link_to profile_path do %>
-                <%= image_tag current_user.profile_image, size: "30x30", class: "rounded-circle" %>
+                <%= image_tag current_user.profile_image, size: "40x40", class: "rounded-circle" %>
               <% end %>
             <% else %>
               <%= link_to 'Profile', profile_path, class: 'nav-link' %>

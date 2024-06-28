@@ -125,3 +125,11 @@ table {
     padding-left: 8px !important;
     padding-right: 8px !important;
 }
+
+#edit-password-link {
+    color: red !important;
+}
+
+.first-nav {
+    margin-right: 10px;
+}

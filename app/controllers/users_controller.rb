@@ -19,6 +19,11 @@ class UsersController < ApplicationController
     end
   
     def update
+      if params[:user][:password].blank?
+        params[:user].delete(:password)
+        params[:user].delete(:password_confirmation)
+      end
+  
       if @user.update(user_params)
         redirect_to profile_path, notice: 'Profile was successfully updated.'
       else
